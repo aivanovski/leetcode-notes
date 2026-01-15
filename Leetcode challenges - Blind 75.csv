@@ -1,0 +1,36 @@
+Name,Solved,Solution,Complexity
+Blind 75,,,
+133. Clone Graph,Y,"Create map for new nodes, dfs or bfs every node and add neightbors to new nodes when they are in new nodes map","O(n) Time, O(n) Space "
+57. Insert Interval,Y,"Put new interval into result. Iterate over intervals, if overlaped with last result, then merge. If not overlapped, then insert either to left or right of last result ","O(n) Time, O(n) Space "
+191. Number of 1 Bits,Y,"Create bit mask with 1 bit, shift it and compare with value in a cycle","O(1) Time, O(1) Space"
+213. House Robber II,Y,"Calculate dp for nums without last value and dp for nums without first value, take max of both dp",
+322. Coin Change,Y,"Iterate through 1 to amount, pick smallest dp for every i, where dp[i-coin] exists",
+91. Decode Ways,Y,,
+238. Product of Array Except Self,Y,"Calculate product from left to right and from right to left, the result for i will be a product of left-to-right[i-1] adn right-to-left[i+1]",
+300. Longest Increasing Subsequence,Y,"For each num, iterate from i + 1 until end and for each num[j] > num[i] and calculate dp[j]",
+15. 3Sum,Y,"Sort nums, iterate over unique nums[i] and calculate two sum for sub array starting from i+1",
+417. Pacific Atlantic Water Flow,Y,"Create 2 arrays for flow, start from initial points that join the ocean and do dfs in reverse-flow direction",O(n) Time
+55. Jump Game,Y,Start from the end and track minimal reachable index of the array,O(n) Time
+Meeting rooms,Y,"Sort intervals by its start, iterate over intervals and merge those that intersects with last interval in the merged list",O(nlogn) Time
+73. Set Matrix Zeroes,Y,Iterate over matrix and set in a buffer rows and columns to set 0. On next iteration set zero to rows and columns,O(n*m) Time
+56. Merge Intervals,Y,"Sort intervals by its start, iterrate over the intervals and check for intersection with last interval",O(nlogn) Time
+572. Subtree of Another Tree,Y,"Use function to compare two trees, iterate over all nodes with dfs and compare tree if root of subtree matches the node",
+152. Maximum Product Subarray,Y,"Track max and min value for dp, for each dp either pick a num[i] or extend an array and multiply to num[i]. Max and min dp values should be considere too",O(n) Time
+62. Unique Paths,Y,"Create a grid dp, iterate over cell and sum current dp with dp in the cell in which robot could go",O(n*m) Time
+207. Course Schedule,Y,"Create course to prerequisites graph, iterate over all courses and check with recursive dfs (cycle will not work) whether course prerequisites are resolvable. Track already resolved courses and visited node for one iteration.",O(n + p) Time
+105. Construct Binary Tree from Preorder and Inorder Traversal,Y,"Take first node in preorder traversal as a top node, find it in inorder traversal, everyting in the left is a left subtreee, evertyhing on the right is a right subtree. Recursevely create left and right subtree if there are more then 1 node respectively",
+338. Counting Bits,Y,"dp[i] is a nubmer of bits, dp[i] = (dp[i-prevMaxPowerOfTwo] + 1) || 1 when i is a power of two",O(n)
+190. Reverse Bits,Y,"Read each bit, then shift it left (31 - i) times and summ with previous result",O(n)
+Graph Valid Tree,Y,"Build a bidirectional graph with neighbouring cells. Iterate with dfs over neighbouring cells, track visited cells and previous cell in order to detect cycle. Valid tree wood be a graph without cycle and all nodes should be connected",O(n)
+79. Word Search,Y,"Create a list path to track the selected cellls. Find a first match and visit every possible neighboring cell recursively, before entering to recursion add cell to the path, after recursive call ends - remove it from the path","O(m*n*4^L), where m,n size of board, L - length of word"
+424. Longest Repeating Character Replacement,Y,"Use frequency map to determine the most common character. Iterate over string with sliding window and move right pointer, when condition (windowLength - mostCommonCharacterCount <= k). Otherwise move left pointer.",
+153. Find Minimum in Rotated Sorted Array,Y,"Do binary search over array, if left pointer value less than mid pointer, then move it to mid + 1. If left pointer greater then mid then move right pointer. Keep track of minimum value for left, right and mid",
+208. Implement Trie (Prefix Tree),Y,,
+371. Sum of Two Integers,Y,"Use XOR opeeration to determine the result of summing the each of the bits of the number. If both bits a 1 or sum of bits are 1 and carry from previous sum is 1, then 1 bit should be applied to the next bit",O(1)
+Meeting Rooms II,Y,"Create arrays with start and end times and sort them. Then iterate over each time period and increment counter of simultaneous meetings if time is a start, and decrement if time is an end. Maximum value of simulataneous meetings would be the minimum number of meeting rooms requires",O(nlogn)
+5. Longest Palindromic Substring,Y,"DP: Create a table dp with size n x n, where dp[i][j] indicates where s[j:i] is a palindrome, iterate over string characters and calculate dp[i][j] considering string is a palindrome when dp[i-1][j+1] is a palindrome and s[i] = s[j]; TWO POINTER: For every index in the string, check possibility to extend left and right pointer, palindromes with odd and even length should have different checks",O(n*n)
+33. Search in Rotated Sorted Array,Y,"Find min value index with binary search, then use binary search for left or right subarray to find target.",
+54. Spiral Matrix,Y,"Create for points left, right, top, bottom. Iterate when left <= right and top <= bottom, add 4 cycles to add values on each side",O(n*m)
+139. Word Break,Y,"Iterate over s from end, for each i calculate dp[i] which will be true if any of the word matches substring from i until i+word.length",O(n*m*wordLen)
+23. Merge k Sorted Lists,Y,Use binary heap to determine which value should be next and index of the list,O(n*logk)
+647. Palindromic Substrings,Y,"Create a table dp size n x n, where dp[i][j] indicates whether s[i:j] is a palindrome. Iterate over string from bottom to top, for each i set dp[i][j] to true, when length of substring is 1, 2 and s[i] mathces s[j] or s[i] matches d[j] and dp[i+1][j-1] is a palindrome",O(n*n)
