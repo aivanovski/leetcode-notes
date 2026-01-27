@@ -1,4 +1,4 @@
-Name,Solved,Solution,Complexity,Additional link,DP formula
+Name,Solved,Solution,Complexity,Additional link,Formula
 133. Clone Graph,Y,"Create map for new nodes, dfs or bfs every node and add neightbors to new nodes when they are in new nodes map","O(n) Time, O(n) Space ",,
 57. Insert Interval,Y,"Put new interval into result. Iterate over intervals, if overlaped with last result, then merge. If not overlapped, then insert either to left or right of last result ","O(n) Time, O(n) Space ",,
 191. Number of 1 Bits,Y,"Create bit mask with 1 bit, shift it and compare with value in a cycle","O(1) Time, O(1) Space",,
@@ -21,9 +21,9 @@ Name,Solved,Solution,Complexity,Additional link,DP formula
 338. Counting Bits,Y,"dp[i] is a nubmer of bits, dp[i] = (dp[i-prevMaxPowerOfTwo] + 1) || 1 when i is a power of two",O(n),,dp[i] = (dp[i - prevPowerOfTwo] + 1) || 1
 190. Reverse Bits,Y,"Read each bit, then shift it left (31 - i) times and summ with previous result",O(n),,
 261. Graph Valid Tree,Y,"Build a bidirectional graph with neighbouring cells. Iterate with dfs over neighbouring cells, track visited cells and previous cell in order to detect cycle. Valid tree wood be a graph without cycle and all nodes should be connected",O(n),,
-79. Word Search,Y,"Create a list path to track the selected cellls. Find a first match and visit every possible neighboring cell recursively, before entering to recursion add cell to the path, after recursive call ends - remove it from the path","O(m*n*4^L), where m,n size of board, L - length of word",,
+79. Word Search,Y,"Create a list path to track the selected cellls. Find a first match and start recursive search with dfs, in the search before visiting the neightbouring cells, add current cell to the path, after neighboring cells are visited - remove cell from path","O(m*n*4^L), where m,n size of board, L - length of word",,
 424. Longest Repeating Character Replacement,Y,"Use frequency map to determine the most common character. Iterate over string with sliding window and move right pointer, when condition (windowLength - mostCommonCharacterCount <= k). Otherwise move left pointer.",,,
-153. Find Minimum in Rotated Sorted Array,Y,"Do binary search over array, if left pointer value less than mid pointer, then move it to mid + 1. If left pointer greater then mid then move right pointer. Keep track of minimum value for left, right and mid",,,
+153. Find Minimum in Rotated Sorted Array,Y,"Do binary search over array, if left pointer value less than mid pointer, then move it to mid + 1. If left pointer greater then mid then move right pointer. Keep track of left, mid and right values",,,if (left < mid) l = m + 1 else r = m - 1
 208. Implement Trie (Prefix Tree),Y,Create a tree in which root is an empty node and other nodes are characters. The word is considered stored only if node has specific flag fot that,,,
 371. Sum of Two Integers,Y,"Use XOR opeeration to determine the result of summing the each of the bits of the number. If both bits a 1 or sum of bits are 1 and carry from previous sum is 1, then 1 bit should be applied to the next bit",O(1),,
 253. Meeting Rooms II,Y,"Create arrays with start and end times and sort them. Then iterate over each time period and increment counter of simultaneous meetings if time is a start, and decrement if time is an end. Maximum value of simulataneous meetings would be the minimum number of meeting rooms requires",O(nlogn),,
@@ -45,3 +45,4 @@ Name,Solved,Solution,Complexity,Additional link,DP formula
 98. Validate Binary Search Tree,Y,"Iterate with dfs, for each node check whether it is in min and max values range, min and max values should be determined by the parent value and whether visited node is left or right",O(n) Time,,
 435. Non-overlapping Intervals,Y,"Sort intervals by their start point, iterate over the intervals if interval doesn't overlap with last interval from the result, add it to the result. If it overlaps, then leave in the result the shosrtest one and increase number of removed intervals",O(n) Time,,
 3. Longest Substring Without Repeating Characters,Y,"Use sliding window over the string and hashset to track already included characters, if new character is in set, then move left window to the next character after the same aleady included character and remove all characters on the left from the hashset",O(n) Time,,
+198. House Robber,Y,"Iterate over array and calculate dp[i], which could be either amount from previuos value dp[i-1] or sum of dp[i-2] and value from array",O(n) Time,,"dp[i] = max(dp[i-1], dp[i-2] + num[i])"
