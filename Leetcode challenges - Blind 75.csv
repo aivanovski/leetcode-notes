@@ -1,12 +1,12 @@
 Name,Solved,Solution,Complexity,Additional link,Formula
-133. Clone Graph,Y,"Create map for new nodes, dfs or bfs every node and add neightbors to new nodes when they are in new nodes map","O(n) Time, O(n) Space ",,
+133. Clone Graph,Y,"Create map for new nodes, dfs for every node and put each node when entering recursive dfs call. Neighbours could be added to the cloned node when cloned neightbours is in map","O(n) Time, O(n) Space ",,
 57. Insert Interval,Y,"Put new interval into result. Iterate over sorted intervals, if overlaped with last result, then merge. If not overlapped, then insert either to left or right of last result ","O(n) Time, O(n) Space ",,
 191. Number of 1 Bits,Y,"Create bit mask with 1 bit, shift it and compare with value in a cycle","O(1) Time, O(1) Space",,
 213. House Robber II,Y,"Calculate dp for nums without last value and dp for nums without first value, take max of both dp",,,"dp[i] = max(dp[i-1], nums[i] + dp[i-2])"
 322. Coin Change,Y,"Iterate through 1 to amount, pick smallest dp for every i, where dp[i-coin] exists",O(n * c) Time,,
 91. Decode Ways,Y,"Iterate over string and calculate dp[i] which represents number of ways to decode, if current number is single digit then dp[i-1] should be considered as current number of ways, also if current and previous character is a valid number, then dp[i-2] should be added to current dp[i]",O(n) TIme,,dp[i] = dp[i-1] + dp[i-2]
 238. Product of Array Except Self,Y,"Calculate product from left to right and from right to left, the result for i will be a product of left-to-right[i-1] adn right-to-left[i+1]",,,
-300. Longest Increasing Subsequence,Y,"For each num, iterate from i + 1 until end and for each num[j] > num[i] and calculate dp[j]",,,
+300. Longest Increasing Subsequence,Y,"Calculate dp for nums, for each number calculate max dp value for range dp[0..i] which could be increased for 1 if num",,,dp[i] = max(dp[0..i] + 1)
 15. 3Sum,Y,"Sort nums, iterate over unique nums[i] and calculate two sum for sub array starting from i+1",,,
 417. Pacific Atlantic Water Flow,Y,"Create 2 arrays for flow, start from initial points that join the ocean and do dfs in reverse-flow direction",O(n) Time,,
 55. Jump Game,Y,Start from the end and track minimal reachable index of the array,O(n) Time,,
@@ -27,8 +27,8 @@ Name,Solved,Solution,Complexity,Additional link,Formula
 208. Implement Trie (Prefix Tree),Y,Create a tree in which root is an empty node and other nodes are characters. The word is considered stored only if node has specific flag fot that,,,
 371. Sum of Two Integers,Y,"Use XOR opeeration to determine the result of summing the each of the bits of the number. If both bits a 1 or sum of bits are 1 and carry from previous sum is 1, then 1 bit should be applied to the next bit",O(1),,
 253. Meeting Rooms II,Y,"Create arrays with start and end times and sort them. Then iterate over each time period and increment counter of simultaneous meetings if time is a start, and decrement if time is an end. Maximum value of simulataneous meetings would be the minimum number of meeting rooms requires",O(nlogn),,
-5. Longest Palindromic Substring,Y,"DP: Create a table dp with size n x n, where dp[i][j] indicates where s[j:i] is a palindrome, iterate over string characters and calculate dp[i][j] considering string is a palindrome when dp[i-1][j+1] is a palindrome and s[i] = s[j]; TWO POINTER: For every index in the string, check possibility to extend left and right pointer, palindromes with odd and even length should have different checks",O(n*n),,
-33. Search in Rotated Sorted Array,Y,"Find min value index with binary search, then use binary search for left or right subarray to find target.",,,
+5. Longest Palindromic Substring,Y,"DP: Create a table dp with size n x n, where dp[i][j] indicates where s[j:i] is a palindrome, iterate over string characters and calculate dp[i][j] considering string is a palindrome when dp[i+1][j-1] is a palindrome and s[i] = s[j]; TWO POINTER: For every index in the string, check possibility to extend left and right pointer, palindromes with odd and even length should have different checks",O(n*n),,
+33. Search in Rotated Sorted Array,Y,"Find min value index with binary search, then use binary search for left or right subarray to find target.",O(logn),,
 54. Spiral Matrix,Y,"Create for points left, right, top, bottom. Iterate when left <= right and top <= bottom, add 4 cycles to add values on each side",O(n*m),,
 139. Word Break,Y,"Iterate over s from end, for each i calculate dp[i] which will be true if any of the word matches substring from i until i+word.length",O(n*m*wordLen),,
 23. Merge k Sorted Lists,Y,Use binary heap to determine which value should be next and index of the list,O(n*logk),,
@@ -48,3 +48,9 @@ Name,Solved,Solution,Complexity,Additional link,Formula
 198. House Robber,Y,"Iterate over array and calculate dp[i], which could be either amount from previuos value dp[i-1] or sum of dp[i-2] and value from array",O(n) Time,,"dp[i] = max(dp[i-1], dp[i-2] + num[i])"
 53. Maximum Subarray,Y,"Iterate over array and calculate dp[i], for each number it could either be included into subrray or it maybe used as start point for subarray",O(n) Time,,"dp[i] = max(dp[i-1] + nums[i], nums[i])"
 39. Combination Sum,Y,"Use backtracking, use dfs, for each iteration include current number into combination without moving current index and don't include current number into combination and increment current index",O(n) Time,,
+48. Rotate Image,Y,"Rotate with 4 points. First would be topLeft, topRigth, bottomRight and bottomLeft. The will occupy new place according to rotation degree",O(n) Time,,
+11. Container With Most Water,Y,"Use 2 pointers, for each iteration if value heights[left] < height[right], then move left pointer to the right. Track max area for each iteration",O(n) Time,,
+297. Serialize and Deserialize Binary Tree,Y,"Use dfs in order to traverse the tree and serialize it into string. To deserialize, use recursive dfs function, which will serialzie value at current index, then recursively serizlie left subtree and then recursively serialize right subtree",O(n) Time,,
+295. Find Median from Data Stream,Y,"Use 2 heaps to store the nums, first one is a max heap to store lesser values, second one is min heap to store greater values. Add number first to the left heap, then balance them so the first heap doesn't have the values greater then min from second heap. The difference in lengh of each heap shouldn't be greater then 1","TIME: insertin O(logn), median O(1) ",,
+235. Lowest Common Ancestor of a Binary Search Tree,Y,"Iterate with dfs, when max(p,q) is less then node, then LCA is in left subtree, when min(p,q) is greater then node, then LCA is in right subtree, otherwise current node is the split bertween p and q and it is LCA",O(h) Time,,
+1143. Longest Common Subsequence,Y,"Create array dp[n][m], where n-length of s1, m-length of s2. Iterate from start to end, increment dp[i-1][dp-1]+1 if s1[i] == s2[j], other wise take max(dp[i+1][j], dp[i][j+])",O(n*m) Time,,"dp[i][j] = dp[i-1][j-1]+1 || max(dp[i-1][j], dp[i][j-1])"
