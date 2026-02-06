@@ -1,7 +1,6 @@
 package secondAttempt.implementTrie
 
 import io.kotest.matchers.shouldBe
-import io.kotest.mpp.start
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 

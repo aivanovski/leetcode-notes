@@ -2,14 +2,15 @@
 appVersion = "0.8.0"
 
 # Build tooling
-kotlin = "2.1.20"
+kotlin = "2.2.20"
 shadowJar = "8.3.6"
 detekt = "1.23.7"
 
 # Testing
-kotest = "5.5.2"
+kotest = "6.1.2"
 junit = "5.5.2"
 mockk = "1.12.3"
+kotlinTest = "2.2.21"
 
 # Core dependencies
 koin = "3.5.0"
@@ -21,6 +22,7 @@ arrow = "1.2.4"
 
 [plugins]
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlinPowerAssert = { id = "org.jetbrains.kotlin.plugin.power-assert", version.ref = "kotlin" }
 shadowJar = { id = "com.gradleup.shadow", version.ref = "shadowJar" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 
@@ -29,6 +31,7 @@ kotest-assertions = { module = "io.kotest:kotest-assertions-core-jvm", version.r
 kotest-runner = { module = "io.kotest:kotest-runner-junit5-jvm", version.ref = "kotest" }
 junit = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+kotlinTest = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlinTest" }
 koin = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 keepassTreeDiff = { module = "com.github.aivanovski:keepass-tree-diff", version.ref = "keepassTreeDiff" }
 keepassTreeBuilder = { module = "com.github.aivanovski:keepass-tree-builder", version.ref = "keepassTreeBuilder" }
