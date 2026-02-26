@@ -1,5 +1,4 @@
 Name,Repeatability factor,Importance,Algorithm,Complexity,Additional link,Formula
-Neetcode 150,,,,,,
 136. Single Number,,,"Use XOR operation on entire array. The result of XOR-ing of identical number is 0, so the result of XOR for entire array is missing number","O(n) Time, O(1) Space",,
 78. Subsets,,,"Use path to track current subset. Use dfs with backtracking to iterate over array, call dfs for index + 1 with current path and with path + num. Add path to result when i >= n",O(n2^n) Time,,
 973. K Closest Points to Origin,,,"Put all points to the min heap, remove K points from the top",O(klogn + n) Time,,
