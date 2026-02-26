@@ -1,0 +1,13 @@
+Name,Repetability factor,Imporance,Algorithm,Complexity,Additional link,Formula
+Neetcode 150,,,,,,
+136. Single Number,,,"Use XOR operation on entire array. The result of XOR-ing of identical number is 0, so the result of XOR for entire array is missing number","O(n) Time, O(1) Space",,
+78. Subsets,,,"Use path to track current subset. Use dfs with backtracking to iterate over array, call dfs for index + 1 with current path and with path + num. Add path to result when i >= n",O(n2^n) Time,,
+973. K Closest Points to Origin,,,"Put all points to the min heap, remove K points from the top",O(klogn + n) Time,,
+130. Surrounded Regions,,,"Mark all cells on boarder as non-capturable with dfs or bfs, then scan for all cells and mark all O as X that are not marked as non-capturable",O(n*m) Time,,
+150. Evaluate Reverse Polish Notation,,,"Use stack, iterate over tokens if token is a num push it to the stack, if token is an operator then pop 2 values from stack and to operation.",O(n) Time,,
+134. Gas Station,,,"Calculate the difference between cost and gas into an array. Solution to the problem exist only if sum of gas array is greater then sum of cost array. Considering fact that solution exist, iterate over differenece array and sum the elements, if the sum became negative, reset the starting point, if the sum became positive, remember starting point. Return starting point as result",O(n) Time,,
+7. Reverse Integer,,,"Use % operation in order to detemine one digit and then divide the number by 10, in order to move to the next digit. Summarize digit with previous sum multiplied by 10. Check whether previous sum stays in a limits of (Int.MAX / 10) .. (Int.MIN / 10)",O(1) Time,,
+43. Multiply Strings,,,Create 2 functions: one to add strings and second to multiply with char (or single int digit). Then take original number and replace a multi-digit multiplication to addition and multiplication with single digit,"O(min(n,m) * (m+n)) Time",,
+543. Diameter of Binary Tree,,,"Iterate with dfs, for each node calculate the depth of left subtree and depth of right subtree. The diameter is the sum of both heights. Track max sum for each node.",O(n) Time,,
+1448. Count Good Nodes in Binary Tree,,,"Iterate with dfs, track max value between visited nodes. If max value <= node value, then current node is blue. Then continue dfs call for left and right node recursively.",O(n) Time,,
+853. Car Fleet,,,"Sort cars by position, iterate from end to start and calculate the travel time = distance / speed. Iterate over from end to start, if current travel time is bigger then travel time of previous car, then it will make a new fleet, otherwise it will be in the fleet of previous car.",O(nlogn) Time,,
