@@ -1,4 +1,4 @@
-Name,Repetability factor,Imporance,Algorithm,Complexity,Additional link,Formula
+Name,Repeatability factor,Importance,Algorithm,Complexity,Additional link,Formula
 133. Clone Graph,,,"Create map for new nodes, dfs for every node and put each node when entering recursive dfs call. Neighbours could be added to the cloned node when cloned neightbours is in map","O(n) Time, O(n) Space ",,
 57. Insert Interval,,,"Put new interval into result. Iterate over sorted intervals, if overlaped with last result, then merge. If not overlapped, then insert either to left or right of last result ","O(n) Time, O(n) Space ",,
 191. Number of 1 Bits,,,"Create bit mask with 1 bit, shift it and compare with value in a cycle","O(1) Time, O(1) Space",,
