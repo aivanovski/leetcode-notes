@@ -2,22 +2,6 @@ package secondAttempt.gasStation
 
 class Solution {
     fun canCompleteCircuit(gas: IntArray, cost: IntArray): Int {
-        // 1 2 3 4 5  gas
-        // 3 4 5 1 2  cost
-        // -----
-        // 0 1 2 3 4
-        //
-        //-2 3-2-2 3
-        //-2-4-6-3 0
-
-
-        // 0 -> 1: 3   15   -2
-        // 1 -> 2: 4   12   -2
-        // 2 -> 3: 5   8    -2
-        // 3 -> 4: 1   3    3
-        // 4 -> 0: 2   2    3
-        // 3+4+5+1+2 = 15
-
         val n = gas.size
         val gasDelta = IntArray(n)
         var sumGas = 0
